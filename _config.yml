@@ -13,8 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM Remote Theme Test
-email:
+title: Raja Biswas
+email: raja_biswas@u.nus.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -43,12 +43,14 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+include:
+  - _pages
 
 author:
-  name   : "Michael Rose"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
-  email  : # optional
+  name   : "Raja Biswas"
+  avatar : "/images/raja_1.JPG"
+  bio    : "Data Science Portfolio."
+  email  : raja_biswas@u.nus.edu
   uri    : "https://mademistakes.com"
 
 # Exclude from processing.
