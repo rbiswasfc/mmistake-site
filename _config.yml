@@ -22,6 +22,7 @@ url: https://rbiswasfc.github.io
 twitter_username: mmistakes
 github_username: mmistakes
 minimal_mistakes_skin: "contrast"
+logo: "/images/RB-logo.png"
 
 # Build settings
 markdown: kramdown
@@ -101,3 +102,10 @@ defaults:
       comments: true
       share: true
       related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
