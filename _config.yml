@@ -46,12 +46,37 @@ plugins:
 include:
   - _pages
 
+# Site Author
 author:
-  name   : "Raja Biswas"
-  avatar : "/images/raja_1.JPG"
-  bio    : "Data Science Portfolio."
-  email  : raja_biswas@u.nus.edu
-  uri    : "https://mademistakes.com"
+  name             : "Raja Biswas"
+  avatar           : "/images/raja_2.JPG"
+  bio              : "Patient Endurance"
+  location         : "Singapore"
+  email            : raja_biswas@u.nus.edu
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rbiswasfc"
+    - label: "LinkedIn"
+      icon:  "fab fa-fw fa-linkedin"
+      url:   "https://www.linkedin.com/in/raja-biswas/"
+
+
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/raja_biswas"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      url: "https://www.facebook.com/raja.biswas.9"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rbiswasfc"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/_rbiswas/"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
