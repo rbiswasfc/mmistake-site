@@ -23,7 +23,7 @@ baseurl: '/'
 url: https://rbiswasfc.github.io
 twitter_username: mmistakes
 github_username: mmistakes
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: "air"
 
 # Build settings
 markdown: kramdown
@@ -61,6 +61,7 @@ author:
       icon:  "fab fa-fw fa-linkedin"
       url:   "https://www.linkedin.com/in/raja-biswas/"
 
+repository: rbiswasfc/rbiswasfc.github.io
 
 # Site Footer
 footer:
