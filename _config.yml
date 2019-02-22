@@ -17,7 +17,7 @@ title: Raja Biswas
 email: raja_biswas@u.nus.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Machine Learning Explorations, Life Adventures
-baseurl: '/'
+baseurl: ''
 url: https://rbiswasfc.github.io
 twitter_username: mmistakes
 github_username: mmistakes
@@ -44,6 +44,7 @@ plugins:
   - jekyll-include-cache
 include:
   - _pages
+
 
 # Site Author
 author:
@@ -113,6 +114,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+
 # Additional things
 # Analytics
 analytics:
@@ -147,3 +149,8 @@ tag_archive:
 #   permalinks:
 #     category: /categories/:name/
 #     tag: /tags/:name/
+# Collections
+collections:
+  travel:
+    output: true
+    permalink: /:collection/:path/
