@@ -3,9 +3,11 @@ title: "Projects"
 layout: archive
 permalink: /projects/
 header:
-    image: "/images/japan_autumn.jpg"
+    overlay_image: "/images/japan_autumn.jpg"
 ---
 
-{% for post in site.pages %}
+This page documents summary of the projects that I have worked on.
+
+{% for post in site.posts %}
   {% include archive-single.html %}
 {% endfor %}
