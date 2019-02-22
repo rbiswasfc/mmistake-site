@@ -3,8 +3,11 @@ title: "Travel"
 layout: archive
 permalink: /travel/
 header:
-    image: "/images/japan_autumn.jpg"
+    overlay_image: "/images/japan_autumn.jpg"
 ---
+
+This page documents my experiences during my travel adventures. Places I have visited...
+
 
 
 {% capture written_label %}'None'{% endcapture %}
