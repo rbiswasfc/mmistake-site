@@ -43,7 +43,7 @@ Before you begin, you will need to have:
 
     These settings are illustrated in the following image:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/GCE/VM-GCE.PNG" alt="Google bucket">
+<img src="{{ site.url }}{{ site.baseurl }}/images/GCE/VM-GCE.png" alt="Google bucket">
 
 NOTE: Once you have created the VM, and set it running, you can open up a terminal by pressing SSH button.
 
@@ -114,7 +114,7 @@ You now create a disk image of the VM you have built, you can create a new VM in
 
 - Now go to Compute Engine > Images, and select CREATE IMAGE. From the dropdown menu, select  source disk as the VM on which you have installed Anaconda, unzip etc.
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/GCE/image-disk.PNG" alt="Image Disk">
+<img src="{{ site.url }}{{ site.baseurl }}/images/GCE/image-disk.png" alt="Image Disk">
 
 - Now , navigate again to the Compute Engine — VM instances page, select ‘Create Instance’, press ‘Change’ on the Boot disk panel, and select ‘Custom Images’. You should see the disk image you just created available for you as a boot disk. If you now create a new VM from this image, it will have all the software (and conda virtual env) you just installed already installed and ready to use.
 
@@ -124,7 +124,7 @@ You now create a disk image of the VM you have built, you can create a new VM in
 
 - I have created a bucket called **rbiswasfc** as follows:
 
-    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/bucket.PNG" alt="Google bucket">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/bucket.png" alt="Google bucket">
 
     Remember to choose the same location as VM instance for smooth data transfer
 
@@ -132,7 +132,7 @@ You now create a disk image of the VM you have built, you can create a new VM in
 
 - Navigate to your GCE VM instance details and click on edit. In the additional disk section, click on add new disk. Subsequently, fill up the details in the pop up window as per your needs, e.g.
 
-    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/SSD.PNG" alt="SSD">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/SSD.png" alt="SSD">
 
 - Mount the disk by executing the following sequence:
 
