@@ -124,7 +124,7 @@ You now create a disk image of the VM you have built, you can create a new VM in
 
 - I have created a bucket called **rbiswasfc** as follows:
 
-    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/bucket.png" alt="Google bucket">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/Bucket.png" alt="Google bucket">
 
     Remember to choose the same location as VM instance for smooth data transfer
 
