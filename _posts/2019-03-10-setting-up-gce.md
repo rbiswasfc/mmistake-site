@@ -20,9 +20,8 @@ The process involves following steps:
 * Set up Google Bucket
 * Adding SSD disks to the instance
 * Migrating files and folders from Google Storage to SSD disk
-* Upzip tar files
-* Using GPU
-* Set up for Jupyter Notebook/Lab
+* GPU Set up
+* Set up Jupyter Lab
 
 ## Creating a virtual instance
 Before you begin, you will need to have:
@@ -191,31 +190,123 @@ Now I need to transfer the project data from Google Bucket: rbiswas to my SSD
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/mg_bucket_ssd.PNG" alt="Migration to SSD">
 
+## GPU  Set up
 
+The basic steps to set up GPU are as follows:
 
-## GPU Set up
-* Apply for GPU quota. May take 1-2 days to get approved
-* Fire up VM with GPU
-* Install CUDA: drivers for the GPU
-	* sudo su
-	* ```#!/bin/bash```
-	* echo "Checking for CUDA and installing."
-	* `if ! dpkg-query -W cuda; then`
-  	* `curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
-  		dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb`
-  	* apt-get update
+* Apply for GPU quota. May take 1-2 days to get approved.
+    * To apply for quota, go to IAM & admin > Quotas and select the options as shown below:
 
-  	* sudo apt-get install cuda-8-0
-	* fi
-* Reboot
-	* sudo reboot
-* Verify its all working properly and GPU is recognized
-	* nvidia-smi
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/gpu_quota.PNG" alt="GPU">
 
+    Make sure you have GPU limit set to at least 1 else choose the limit from "EDIT QUOTAS". After resolving the GPU limit, open up a VM with GPU.
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/GCE/gpu-check-working.PNG" alt="GPU Check">
+* Install CUDA (drivers for GPU) by executing the following commands:
+
+    * Download the CUDA Toolkit
+
+    `curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_10.0.130-1_amd64.deb`
+
+    * Use `dpkg` command to add the repository to your system
+
+    `sudo dpkg -i cuda-repo-ubuntu1604_10.0.130-1_amd64.deb`
+
+    * Use the `apt-key` command to authenticate the download
+
+    `sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub`
+
+    * Update the package lists:
+
+    `sudo apt-get update`
+
+    * Install CUDA
+
+    `sudo apt-get install cuda-10-0`
+
+    * Enable persistence mode
+
+    `sudo nvidia-smi -pm 1`
+
+    * The following commands should setup the environment variables and add them to run command (rc) script file. Next, remember to source the rc file so that we can use them straightaway.
+
+    `echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc`
+
+    `echo 'export PATH=$PATH:$CUDA_HOME/bin' >> ~/.bashrc`
+
+    `echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64' >> ~/.bashrc`
+
+    `source ~/.bashrc`
+
+    * Reboot
+
+	`sudo reboot`
+
+    * Verify its all working properly and GPU is recognized
+
+	`nvidia-smi`
+
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/gpu-check-working.PNG" alt="GPU Check">
 
 * Install cuDNN
+
+    * To download the installation files, please proceed to [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn) to register for an account.
+
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/nvidia_account.PNG" alt="NVIDIA">
+
+    Once your account has been created and verified, proceed to download the cuDNN library which is compatible with installed CUDA version.
+
+    * Download the cuDNN library from [https://developer.nvidia.com/rdp/cudnn-download](https://developer.nvidia.com/rdp/cudnn-download).
+
+    * In my case, I downloaded cuDNN v7.5.0 (Feb 25, 2019), for CUDA 10.1. Upload the installation file in your Google bucket.
+
+    * Copy the installation file from Google bucket to VM
+
+    `cd ~`
+
+    `gsutil cp gs://deepakpokkalla/* .`
+
+    Please replace deepakpokkalla with your bucket name.
+
+    * Once the file has been uploaded to GCP instance, unpack and move the files as root.
+
+    `tar xzvf cudnn-8.0-linux-x64-v6.0.tgz`
+
+    `sudo cp cuda/lib64/* /usr/local/cuda/lib64/`
+
+    `sudo cp cuda/include/cudnn.h /usr/local/cuda/include/`
+
+* Install tensorflow-gpu using anaconda
+
+    `conda create --name tf_gpu tensorflow-gpu`
+
+    `source activate tf_gpu`
+
+    * To make tf_gpu kernal available in jupyter lab, install the following
+
+    `conda install jupyter`
+
+    `conda install nb_conda`
+
+    `conda install ipykernel`
+
+    `python -m ipykernel install --user --name tf_gpu --display-name "Python (tf_gpu)"`
+
+    * Install other python libraries as need arises using pip (after activating tf_gpu using source activate). For example, to install keras execute
+
+    `source activate tf_gpu` (if it is not active)
+
+    `pip install keras`
+
+## Set up Jupyter Lab
+
+* From your desired directory, execute
+
+    `jupyter lab --ip=0.0.0.0 --port=8888 --no-browser &`
+
+    Copy the generated token
+
+* Now, go to your browser and type xx.xxx.xxx.xxx:8888 (replace x with your external IP of your VM). You will need the generated token to authenticate jupyter lab.
+
 
 ## NN Model
 Describe the predictive model and associated points
