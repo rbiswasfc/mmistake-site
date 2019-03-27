@@ -197,7 +197,7 @@ The basic steps to set up GPU are as follows:
 * Apply for GPU quota. May take 1-2 days to get approved.
     * To apply for quota, go to IAM & admin > Quotas and select the options as shown below:
 
-    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/gpu_quota.PNG" alt="GPU">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/gpu_quota.png" alt="GPU">
 
     Make sure you have GPU limit set to at least 1 else choose the limit from "EDIT QUOTAS". After resolving the GPU limit, open up a VM with GPU.
 
@@ -251,7 +251,7 @@ The basic steps to set up GPU are as follows:
 
     * To download the installation files, please proceed to [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn) to register for an account.
 
-    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/nvidia_account.PNG" alt="NVIDIA">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/GCE/nvidia_account.png" alt="NVIDIA">
 
     Once your account has been created and verified, proceed to download the cuDNN library which is compatible with installed CUDA version.
 
