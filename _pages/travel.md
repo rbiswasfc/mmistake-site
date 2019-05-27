@@ -30,7 +30,7 @@ Python code block:
 ```
 
 Here is an image:
-<img src="{{ site.url }}{{ site.baseurl }}/images/raja_3.JPG" alt="my caption">
+<img src="{{ site.url }}{{ site.baseurl }}/images/japan/IMG_8622.jpg" alt="Japan Alps">
 
 Some math eq:
 
