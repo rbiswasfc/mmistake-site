@@ -2,6 +2,8 @@
 title: "Travel"
 layout: archive
 permalink: /travel/
+entries_layout: grid
+mathjax: true
 header:
     overlay_image: "/images/japan_autumn.jpg"
 ---
@@ -11,6 +13,7 @@ This page documents my experiences during my travel adventures. Places I have vi
 # H1 heading
 ## H2 heading
 ### H3 Heading
+
 
 *italics text*
 **bold**
@@ -32,17 +35,15 @@ Python code block:
 Here is an image:
 <img src="{{ site.url }}{{ site.baseurl }}/images/japan/IMG_8622.jpg" alt="Japan Alps">
 
-Some math eq:
+Some math eq: $$ x^2 = 4$$
 
 
 
 {% capture written_label %}'None'{% endcapture %}
-
 {% for collection in site.collections %}
   {% unless collection.output == false or collection.label == "posts" %}
     {% capture label %}{{ collection.label }}{% endcapture %}
     {% if label != written_label %}
-      <h2 id="{{ label | slugify }}" class="archive__subtitle">{{ label }}</h2>
       {% capture written_label %}{{ label }}{% endcapture %}
     {% endif %}
   {% endunless %}
@@ -52,3 +53,9 @@ Some math eq:
     {% endunless %}
   {% endfor %}
 {% endfor %}
+
+{% if page.mathjax %}
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+{% endif %}
