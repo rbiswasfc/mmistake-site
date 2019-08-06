@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raja Biswas</title>
+    <link>https://rbiswasfc.github.io/</link>
+    <description>Recent content on Raja Biswas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Jul 2019 21:12:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://rbiswasfc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Japan</title>
+      <link>https://rbiswasfc.github.io/posts/travel/japan/</link>
+      <pubDate>Wed, 10 Jul 2019 21:12:08 +0800</pubDate>
+      
+      <guid>https://rbiswasfc.github.io/posts/travel/japan/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
